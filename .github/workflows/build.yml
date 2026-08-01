@@ -171,7 +171,8 @@ jobs:
   release:
     needs: build
     runs-on: self-hosted
-    if: ${{ !cancelled() && (startsWith(github.ref, 'refs/tags/v')) }}
+    if: ${{ !cancelled() && (!cancelled() && (startsWith(github.ref, 'refs/tags/v')))
+      }}
     permissions:
       contents: write
     steps:
